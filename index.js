@@ -49,14 +49,14 @@ async function main() {
   const lines = [];
   for (let i = 0; i < numArtitst; i++) {
     const plays = json.topartists.artist[i].playcount;
-    let name = json.topartists.artist[i].name.substring(0, 25);
+    let name = json.topartists.artist[i].name.substring(0, 23);
     // trim off long widechars
-    for (let i = 24; i >= 0; i--) {
-      if (eaw.length(name) <= 26) break;
+    for (let i = 22; i >= 0; i--) {
+      if (eaw.length(name) <= 24) break;
       name = name.substring(0, i);
     }
     // pad short strings
-    name = name.padEnd(26 + name.length - eaw.length(name));
+    name = name.padEnd(24 + name.length - eaw.length(name));
 
     lines.push(
       [
@@ -75,7 +75,7 @@ async function main() {
       gist_id: gistID,
       files: {
         [filename]: {
-          filename: `🎵 My last week in music`,
+          filename: `🎧 Latest Listens...`,
           content: lines.join("\n"),
         },
       },
